@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83326c43-49a8-48bc-b9ec-ec475dc2a5c0}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\content\bootstrap.css" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\content\bootstrap.min.css" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\content\site.css" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\bootstrap.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\bootstrap.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery-1.10.2.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\respond.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\respond.min.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\static\scripts\_references.js" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\templates\about.html" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\templates\contact.html" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\templates\index.html" />
+    <Content Include="FlaskWebProject1\FlaskWebProject1\templates\layout.html" />
+    <Content Include="FlaskWebProject1\requirements.txt" />
+    <Content Include="Statistics_API\obj\Any CPU\Debug\Statistics_API.pyproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FlaskWebProject1\FlaskWebProject1\views.py" />
+    <Compile Include="FlaskWebProject1\FlaskWebProject1\__init__.py" />
+    <Compile Include="FlaskWebProject1\runserver.py" />
+    <Compile Include="Kolmodorov_Smirnov_Test_UnitTest_L0\Kolmodorov_Smirnov_Test_UnitTest_L0.py" />
+    <Compile Include="Kolmodor_Smirnov_Test\TestForNormality.py" />
+    <Compile Include="Statistics_API\app.py" />
+    <Compile Include="Statistics_API\KolmogorovSmirnovTest.py" />
+    <Compile Include="Statistics_API\KSTest.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FlaskWebProject1" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\static\content" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\static\fonts" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\static\scripts" />
+    <Folder Include="FlaskWebProject1\FlaskWebProject1\templates" />
+    <Folder Include="Kolmodorov_Smirnov_Test_UnitTest_L0" />
+    <Folder Include="Kolmodor_Smirnov_Test" />
+    <Folder Include="Statistics_API" />
+    <Folder Include="Statistics_API\obj\Any CPU\Debug" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

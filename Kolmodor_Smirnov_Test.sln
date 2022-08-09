@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Statistics_API", "Statistics_API\Statistics_API.pyproj", "{915A7C25-AC96-4101-B406-FEFB9916F2F5}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Kolmodorov_Smirnov_Test", "Kolmodorov_Smirnov_Test\Kolmodorov_Smirnov_Test.pyproj", "{868E29D3-7F8E-4E98-BDF4-C77609D8F192}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Kolmodorov_Smirnov_Test_L0", "Kolmodorov_Smirnov_Test_L0\Kolmodorov_Smirnov_Test_L0.pyproj", "{A95322D3-89F2-4C00-A11B-0703E53B2B10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{915A7C25-AC96-4101-B406-FEFB9916F2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915A7C25-AC96-4101-B406-FEFB9916F2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915A7C25-AC96-4101-B406-FEFB9916F2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915A7C25-AC96-4101-B406-FEFB9916F2F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868E29D3-7F8E-4E98-BDF4-C77609D8F192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868E29D3-7F8E-4E98-BDF4-C77609D8F192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A95322D3-89F2-4C00-A11B-0703E53B2B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A95322D3-89F2-4C00-A11B-0703E53B2B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F6DB3E7-8E72-46D0-B9E0-623E1B8EFB47}
+	EndGlobalSection
+EndGlobal
