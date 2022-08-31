@@ -14,7 +14,7 @@ class KSTestForNormality(Logger):
                 res = stats.kstest(arguments, 'norm')
                 end = time.time()
                 logger.info(
-                    "Kolmodorov - Smirnov test for normality has completed. Arguments:{0}. Completion time: {1}", arguments, end - start)
+                    "Kolmodorov - Smirnov test for normality has completed. Arguments:{0}, Result: {1} Completion time: {2}", arguments, res, end - start)
                 return res
             except Exception as e:
                 logger.error(
