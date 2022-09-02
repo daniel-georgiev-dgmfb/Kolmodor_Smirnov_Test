@@ -2,10 +2,12 @@ from flask import Flask
 from logging import Logger
 from KSTest import KS_Test
 from RunningStats import RunningStats
+from scipy.spatial.distance import cdist
 import array as arr
 from flask import request
 from scipy import stats
-from ModeResult import ModeResult
+import numpy as np
+#from ModeResult import ModeResult
 import numpy as np
 import json
 # Create an instance of the Flask class that is the WSGI application.
@@ -20,6 +22,55 @@ app = Flask(__name__)
 @app.route('/home', methods = ['GET'])
 def home():
     return ("Post readings to /specificFunction to get a result")
+
+@app.route('/stats/funcs/integrate', methods = ['POST'])
+def integrate():
+    readings = request.form;
+
+    ydatareadings = readings['yreadings'];
+    ydata = ydatareadings.split(',')
+    yinput =[float(g.strip('[').strip(']')) for g in ydata]
+
+    xdatareadings = readings['xreadings'];
+    xdata = xdatareadings.split(',')
+    xinput =[float(g.strip('[').strip(']')) for g in xdata]
+
+    dx = readings['dx'];
+    dx =float(dx)
+    
+    result = np.trapz(yinput, xinput,dx)
+    jsonresult = json.dumps(result)
+    return (jsonresult)
+
+@app.route('/stats/funcs/median', methods = ['POST'])
+def median():
+    readings = request.form;
+    data = readings['readings'];
+    data = data.split(',')
+    input = readings1 =[int(g)for g in data]
+    result = np.median(input);
+    jsonresult = json.dumps(result)
+    return (jsonresult)
+
+@app.route('/stats/tests/euclideandistance', methods = ['POST'])
+def EuDistance():
+    readings = request.form;
+    data = readings['readings'];
+    split = data.split('],[')
+    data = []
+    
+    for s in split:
+        s1 = s.strip('[').strip(',]')
+        t = tuple(s1.split(','))
+        d = [int(g)for g in t];
+        data.append(d)
+
+    result = cdist(data, data)
+    minbount = result.min();
+    maxbount = result.max();
+    restuple = tuple({minbount, maxbount});
+    jsonresult = json.dumps(restuple);
+    return (jsonresult)
 
 @app.route('/stats/tests/kstest', methods = ['POST'])
 def KSTest():
@@ -38,8 +89,6 @@ def skew():
     data = readings['readings'];
     data = data.split(',')
     input = readings1 =[int(g)for g in data]
-    #runningStats = RunningStats();
-    #r = runningStats.skew(input);
     result = stats.skew(input)
     jsonresult = json.dumps(result)
     return (jsonresult)
@@ -50,9 +99,7 @@ def kurtosis():
     data = readings['readings'];
     data = data.split(',')
     input = readings1 =[int(g)for g in data]
-    #runningStats = RunningStats();
     result = stats.kurtosis(input)
-    #result1 = runningStats.kurtosis(input)
     jsonresult = json.dumps(result)
     return (jsonresult)
 
@@ -101,7 +148,6 @@ def standarderror():
     data = readings['readings'];
     data = data.split(',')
     input = readings1 =[int(g)for g in data]
-    #runningStats = RunningStats();
     result = stats.sem(input);
     jsonresult = json.dumps(result)
     return (jsonresult)
