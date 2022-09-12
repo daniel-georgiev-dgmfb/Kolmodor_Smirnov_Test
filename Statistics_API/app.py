@@ -1,14 +1,18 @@
+from pickle import TUPLE
 from flask import Flask
 from logging import Logger
 from KSTest import KS_Test
 from RunningStats import RunningStats
-from scipy.spatial.distance import cdist
+#from scipy.spatial.distance import cdist
+from scipy.spatial import distance
 import array as arr
 from flask import request
 from scipy import stats
 import numpy as np
 #from ModeResult import ModeResult
 import numpy as np
+from scipy.stats import entropy
+#from scipy import function_base
 import json
 # Create an instance of the Flask class that is the WSGI application.
 # The first argument is the name of the application module or package,
@@ -27,11 +31,11 @@ def home():
 def integrate():
     readings = request.form;
 
-    ydatareadings = readings['yreadings'];
+    ydatareadings = readings['readingsy'];
     ydata = ydatareadings.split(',')
     yinput =[float(g.strip('[').strip(']')) for g in ydata]
 
-    xdatareadings = readings['xreadings'];
+    xdatareadings = readings['readingsx'];
     xdata = xdatareadings.split(',')
     xinput =[float(g.strip('[').strip(']')) for g in xdata]
 
@@ -52,24 +56,28 @@ def median():
     jsonresult = json.dumps(result)
     return (jsonresult)
 
-@app.route('/stats/tests/euclideandistance', methods = ['POST'])
+@app.route('/stats/spatial/euclideandistance', methods = ['POST'])
 def EuDistance():
     readings = request.form;
-    data = readings['readings'];
-    split = data.split('],[')
-    data = []
+    datax = readings['readingsx'];
+    datay = readings['readingsy'];
+    splitx = datax.split(',')
+    splity = datay.split(',')
+    dataintx = []
+    datainty = []
     
-    for s in split:
-        s1 = s.strip('[').strip(',]')
-        t = tuple(s1.split(','))
-        d = [int(g)for g in t];
-        data.append(d)
+    for s in splitx:
+        s1 = s.strip('[').strip(',]').split(',')
+        d = [int(g)for g in s1];
+        dataintx.append(d)
 
-    result = cdist(data, data)
-    minbount = result.min();
-    maxbount = result.max();
-    restuple = tuple({minbount, maxbount});
-    jsonresult = json.dumps(restuple);
+    for s in splity:
+        s1 = s.strip('[').strip(',]').split(',')
+        d = [int(g)for g in s1];
+        datainty.append(d)
+
+    result = distance.euclidean(dataintx, datainty)
+    jsonresult = json.dumps(result);
     return (jsonresult)
 
 @app.route('/stats/tests/kstest', methods = ['POST'])
@@ -113,6 +121,29 @@ def trimedvariance():
     jsonresult = json.dumps(result)
     return (jsonresult)
 
+@app.route('/stats/funcs/covariance', methods = ['POST'])
+def covariance():
+    readings = request.form;
+    data = readings['readings'];
+    data = data.split(',')
+    input = readings1 =[int(g)for g in data]
+    result = np.cov(input);
+    jsonresult = json.dumps(result.max())
+    return (jsonresult)
+
+@app.route('/stats/funcs/pearsoncoefficient', methods = ['POST'])
+def pearson():
+    readings = request.form;
+    datax = readings['readingsx'];
+    datax = datax.split(',')
+    input = readings1 =[float(g) for g in datax]
+    datay = readings['readingsy'];
+    datay = datay.split(',')
+    input1 = readings2 =[float(g) for g in datay]
+    result = stats.pearsonr(input, input1)
+    jsonresult = json.dumps(tuple({ result[0], result[1] }))
+    return (jsonresult)
+
 @app.route('/stats/funcs/sdeviation', methods = ['POST'])
 def standarddeviation():
     readings = request.form;
@@ -120,6 +151,16 @@ def standarddeviation():
     data = data.split(',')
     input = [int(g)for g in data]
     result = stats.tstd(input);
+    jsonresult = json.dumps(result)
+    return (jsonresult)
+
+@app.route('/stats/funcs/entropy', methods = ['POST'])
+def entropy():
+    readings = request.form;
+    data = readings['readings'];
+    data = data.split(',')
+    input = [int(g)for g in data]
+    result = stats.entropy(input);
     jsonresult = json.dumps(result)
     return (jsonresult)
 
@@ -149,6 +190,16 @@ def standarderror():
     data = data.split(',')
     input = readings1 =[int(g)for g in data]
     result = stats.sem(input);
+    jsonresult = json.dumps(result)
+    return (jsonresult)
+
+@app.route('/stats/tests/ttest', methods = ['POST'])
+def TTest():
+    readings = request.form;
+    data = readings['readings'];
+    data = data.split(',')
+    input = [int(g)for g in data]
+    result = stats.ttest_1samp(input, 0.00);
     jsonresult = json.dumps(result)
     return (jsonresult)
 
