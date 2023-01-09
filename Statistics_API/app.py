@@ -28,10 +28,10 @@ app = Flask(__name__)
 def home():
     return ("Post readings to /specificFunction to get a result")
 
-@app.route('/stats/funcs/hash', methods = ['POST'])
+@app.route('/cryptography/funcs/hash', methods = ['POST'])
 def hash():
     readings = request.form;
-    data = readings['readings'];
+    data = readings['data'];
     hashAlg = readings['hashAlg'];
     h = Hash()
     hashed = h.generate(data, hashAlg)
