@@ -31,6 +31,7 @@
     <Compile Include="app.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Cryptography.py" />
     <Compile Include="KSTest.py">
       <SubType>Code</SubType>
     </Compile>

@@ -26,6 +26,9 @@
     <Content Include="PythonSettings.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cryptography.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Kolmodorov_Smirnov_Test_L0.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
