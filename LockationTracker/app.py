@@ -1,6 +1,7 @@
 #Cell Phone Trilateration Algorithm - www.101computing.net/cell-phone-trilateration-algorithm/
+from flask import Flask
 import draw
-
+app = Flask(__name__)
 #A function to apply trilateration formulas to return the (x,y) intersection point of three circles
 def trackPhone(x1,y1,r1,x2,y2,r2,x3,y3,r3):
   A = 2*x2 - 2*x1
