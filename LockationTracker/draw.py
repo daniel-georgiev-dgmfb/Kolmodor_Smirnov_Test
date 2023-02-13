@@ -12,14 +12,22 @@ def drawCellTowers():
   window.bgcolor("#F0F0F0")
   
   
-  x1 = randint(-150,-80)
-  y1 = randint(-150,150)
-  x2 = randint(80,150)
-  y2 = randint(20,150)
-  x3 = randint(80,150)
-  y3 = randint(-150,-20)
-  x = randint(-60,60)
-  y = randint(-60,60)
+  #x1 = randint(-150,-80)
+  #y1 = randint(-150,150)
+  #x2 = randint(80,150)
+  #y2 = randint(20,150)
+  #x3 = randint(80,150)
+  #y3 = randint(-150,-20)
+  #x = randint(-60,60)
+  #y = randint(-60,60)
+  x1 = -100
+  y1 = 110
+  x2 = 110
+  y2 = 60
+  x3 = 90
+  y3 = -120
+  x = -10
+  y = 30
   r1 = ((x-x1)**2 + (y-y1)**2)**0.5
   r2 = ((x-x2)**2 + (y-y2)**2)**0.5
   r3 = ((x-x3)**2 + (y-y3)**2)**0.5

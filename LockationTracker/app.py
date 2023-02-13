@@ -4,6 +4,7 @@ import draw
 app = Flask(__name__)
 #A function to apply trilateration formulas to return the (x,y) intersection point of three circles
 def trackPhone(x1,y1,r1,x2,y2,r2,x3,y3,r3):
+  print(x1, y1, x2, y2)
   A = 2*x2 - 2*x1
   B = 2*y2 - 2*y1
   C = r1**2 - r2**2 - x1**2 + x2**2 - y1**2 + y2**2
