@@ -361,3 +361,15 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Kolmodorov_Smirnov_Test/desktop.ini
+/Kolmodorov_Smirnov_Test_L0/desktop.ini
+/Kolmodorov_Smirnov_Test_UnitTest_L0/desktop.ini
+/Kolmodor_Smirnov_Test/desktop.ini
+/Statistics_API/desktop.ini
+/Transform_API/desktop.ini
+/WebProject2/desktop.ini
+/WebProject1/desktop.ini
+/desktop.ini
+/FlaskWebProject1/desktop.ini
+/FlaskWebProject1/FlaskWebProject1/static
+/FlaskWebProject1/FlaskWebProject1
