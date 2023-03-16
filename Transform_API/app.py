@@ -28,7 +28,7 @@ app = Flask(__name__)
 def home():
     return ("Post readings to /specificFunction to get a result")
 
-@app.route('/stats/funcs/fft', methods = ['POST'])
+@app.route('/transform/funcs/fft', methods = ['POST'])
 def FourierTransforms():
     readings = request.form;
 
